@@ -1,0 +1,180 @@
+/* Obecný styl */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f5e9; /* Jemná zlatá */
+    color: #333;
+    scroll-behavior: smooth; /* Plynulý přechod */
+}
+
+/* Navigace */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #1f5125; /* Zelená */
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+header .logo {
+    color: white;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+}
+
+nav ul li {
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background: #3d7745; /* Světlejší zelená */
+    border-radius: 5px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Sekce */
+.section {
+    display: flex;
+    align-items: stretch; /* Ujistíme se, že děti budou mít odpovídající výšku */
+    justify-content: center;
+    height: 100vh; /* Zajistí, že sekce zabere celou výšku obrazovky */
+    padding: 0; /* Zrušení vnitřních okrajů */
+    margin: 0; /* Zrušení vnějších okrajů */
+    text-align: center;
+    position: relative; /* Umožní pozadí s obrázkem správně fungovat */
+    width: 100%; /* Ujistíme se, že sekce bude mít šířku 100% */
+}
+
+.section.light {
+    background: #fdf7e6; /* Jemná zlatavá */
+}
+
+.section.dark {
+    background: #e6f4e2; /* Jemná zelená */
+}
+
+.contact {
+    background: #f5e9d8; /* Světlejší zlatá */
+}
+
+/* Obsah sekcí */
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%; /* Ujistíme se, že obsah sekce zabere celou výšku */
+}
+
+.text {
+    flex: 1;
+    padding: 20px;
+}
+
+.image {
+    flex: 1;
+    width: 60%; /* Obrázek zabírá 60% šířky sekce */
+    height: 100%; /* Výška je nastavena na 100% sekce */
+    object-fit: cover; /* Obrázek bude pokrývat celý div a bude oříznut, pokud bude potřeba */
+    background-position: center; /* Vycentrování obrázku */
+    border-radius: 0; /* Zrušení zaoblení rohů */
+    position: relative; /* Umožňuje pozadí překrýt celý obsah */
+}
+
+/* Sekce kontakt */
+.contact {
+    background: #e6f4e2; /* Jemná zelená (odpovídá stránce Drážďany) */
+    display: flex;
+    flex-direction: column; /* Vertikální rozložení */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    color: #1f5125; /* Tmavě zelená barva textu */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.contact h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.contact p {
+    font-size: 1.2rem;
+    max-width: 600px; /* Maximální šířka pro lepší čitelnost */
+    margin: 0 auto;
+}
+
+/* Mobilní menu */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: #1f5125; /* Zelená */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        padding-top: 50px;
+    }
+
+    nav ul.show {
+        transform: translateX(0);
+    }
+
+    nav ul li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 1.5rem;
+        padding: 20px;
+    }
+
+    .menu-toggle {
+        display: block;
+        z-index: 1001;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .image {
+        width: 100%;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+}
